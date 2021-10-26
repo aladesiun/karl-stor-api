@@ -5,6 +5,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Hash;
+
 
 class SignupController extends Controller
 {
@@ -22,8 +24,9 @@ class SignupController extends Controller
         $user->firstname = $req->firstname;
         $user->lastname = $req->lastname;
         $user->email = $req->email;
-        $user->password = $req->password;
-        $user->confirmpassword = $req->confirmpassword;
+        $user->password = Hash::make($req->password);
+        $user->confirmpassword = Hash::make($req->confirmpassword);
+
         $user->save();
 
         $credentials = $req->validate([

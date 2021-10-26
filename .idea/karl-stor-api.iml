@@ -120,6 +120,9 @@
       <excludeFolder url="file://$MODULE_DIR$/karl/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/karl/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/karl/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/karl/vendor/lcobucci/jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/karl/vendor/tymon/jwt-auth" />
+      <excludeFolder url="file://$MODULE_DIR$/karl/vendor/namshi/jose" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
