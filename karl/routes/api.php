@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('jwt.auth')->group(function (){
+
+});
+Route::post('signup', [\App\Http\Controllers\SignupController::class, 'signup']);
+Route::post('login', [\App\Http\Controllers\SignupController::class, 'login']);
