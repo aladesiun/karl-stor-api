@@ -114,6 +114,9 @@
       <path value="$PROJECT_DIR$/karl/vendor/psr/log" />
       <path value="$PROJECT_DIR$/karl/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/karl/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/karl/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/karl/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/karl/vendor/namshi/jose" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3">

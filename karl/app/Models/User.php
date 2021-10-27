@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use app\Models\post;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -41,4 +44,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+        // TODO: Implement getJWTIdentifier() method.
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+        // TODO: Implement getJWTCustomClaims() method.
+    }
+    public function getpost(){
+        return $this->hasMany('App\Models\post');
+    }
 }
