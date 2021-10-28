@@ -23,3 +23,4 @@ Route::middleware('jwt.auth')->group(function (){
 });
 Route::post('signup', [\App\Http\Controllers\SignupController::class, 'signup']);
 Route::post('login', [\App\Http\Controllers\SignupController::class, 'login']);
+Route::post('createproduct', [\App\Http\Controllers\ProductController::class, 'createproduct']);
