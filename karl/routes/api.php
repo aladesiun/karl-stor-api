@@ -19,7 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('jwt.auth')->group(function (){
+    Route::post('postproduct', [\App\Http\Controllers\ProductController::class, 'createproduct']);
 
 });
 Route::post('signup', [\App\Http\Controllers\SignupController::class, 'signup']);
 Route::post('login', [\App\Http\Controllers\SignupController::class, 'login']);
+Route::post('createproduct', [\App\Http\Controllers\ProductController::class, 'createproduct']);

@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/dashboard')->group(function (){
+
+    Route::get('/', function (){
+        return view('admin.admins.index');
+    });
+
+    Route::get('/tables', function (){
+        return view('admin.admins.tables');
+    });
 });
+Route::get('/', function (){
+    return view('admin.inc.app');
+});
+
