@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use app\Models\product;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -17,7 +17,7 @@ class ProductController extends Controller
             'image'=>['required'],
 
         ]));
-        $product = new product();
+        $product = new Product();
         $product->name = $req->name;
         $product->category = $req->category;
         $product->price = $req->price;
@@ -26,13 +26,13 @@ class ProductController extends Controller
         $product->image = $req->image;
         if ($product->save()){
             return response()->json([
-                status=>true,
-                message =>'Product created successfully'
+                'status'=>true,
+                'message' =>'Product created successfully'
             ]);
         }
         return response()->json([
-            status=>false,
-            message =>'An error Ocurred'
+            'status'=>false,
+            'message' =>'An error Ocurred'
         ]);
 
     }
