@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +19,8 @@ Route::prefix('/dashboard')->group(function (){
         return view('admin.admins.index');
     });
 
-    Route::get('/tables', function (){
-        return view('admin.admins.tables');
-    });
+    Route::get('/tables', [ProductController::class, 'getproducttable']);
+    Route::get('/', [ProductController::class, 'getproductfordashboard']);
 });
 Route::get('/', function (){
     return view('admin.inc.app');

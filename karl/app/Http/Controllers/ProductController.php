@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -35,5 +36,33 @@ class ProductController extends Controller
             'message' =>'An error Ocurred'
         ]);
 
+    }
+
+    public  function getproductfordashboard(){
+        $products = product::all();
+        $users = User::all();
+        return view('admin.admins.index', ['products'=>$products, 'users'=>$users]);
+    }
+
+    public  function getproducttable(){
+        $products = product::all();
+        $users = User::all();
+        return view('admin.admins.tables', ['products'=>$products, 'users'=>$users]);
+    }
+    public  function getproduct(){
+        $products = product::paginate(3);
+        return response()->json([
+            'status'=>true,
+            'data'=>$products
+        ]);
+    }
+    public function randomNumber(){
+        $Randnumber = rand(2,50);
+        $randpi = rad2deg(pi()/4);
+        return response()->json([
+            'status'=>True,
+            'data'=>$Randnumber,
+            'randpi'=>$randpi
+        ]);
     }
 }
