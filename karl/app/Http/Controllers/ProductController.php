@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\productmail;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -25,12 +27,25 @@ class ProductController extends Controller
         $product->size = $req->size;
         $product->description = $req->description;
         $product->image = $req->image;
+        Mail::to(env("MAIL_FROM_ADDRESS"))->send(new productmail([
+            'subject'=>'your products',
+            'title'=>'product post successful',
+            'name' => $req->name,
+            'content' => $req->description
+        ]));
         if ($product->save()){
             return response()->json([
                 'status'=>true,
                 'message' =>'Product created successfully'
             ]);
         }
+        Mail::to(env("MAIL_FROM_ADDRESS"))->send(new productmail([
+            'subject'=>'your products',
+            'title'=>'product post successful',
+            'name' => $req->name,
+            'content' => $req->description
+        ]));
+
         return response()->json([
             'status'=>false,
             'message' =>'An error Ocurred'

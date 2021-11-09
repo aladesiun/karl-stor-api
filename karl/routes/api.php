@@ -27,4 +27,5 @@ Route::post('signup', [\App\Http\Controllers\SignupController::class, 'signup'])
 Route::post('login', [\App\Http\Controllers\SignupController::class, 'login']);
 Route::get('getproduct', [\App\Http\Controllers\ProductController::class, 'getproduct']);
 Route::get('getrandomnumber', [\App\Http\Controllers\ProductController::class, 'randomNumber']);
+Route::post('reset-password', [\App\Http\Controllers\SignupController::class, 'reset_password']);
 
