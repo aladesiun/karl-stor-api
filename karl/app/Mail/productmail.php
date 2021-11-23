@@ -26,10 +26,11 @@ class productmail extends Mailable
     /**
      * Build the message.
      *
+    {
+    return $this->view('mail.product')->subject($this->data['subject'])->with($this->data);
+    }
+    }
+
      * @return $this
      */
     public function build()
-    {
-        return $this->view('mail.product')->subject($this->data['subject'])->with($this->data);
-    }
-}
